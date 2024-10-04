@@ -1,0 +1,129 @@
+@import url("https://fonts.googleapis.com/css2?family=family=Mooli&display=swap");
+:root {
+--primary-color: #52489c;
+--secondary-color: #59c3c3;
+--accent-color: #f45b69;
+--text-dark: #333;
+--text-light: #ebebeb;
+--primary-font: Arial, Helvetica,sans-serif;
+--secondary-font: Mooli, sans-serif;
+}
+
+img {
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border: 6px solid var(--text-light);
+    box-shadow: 8px 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+body {
+    font-family: var(--primary-font);
+    font-size: 1.2em;
+    background-color: var(--primary-color);
+    margin: 0;
+  }
+
+a:link {
+    color: var(--text-light);
+}
+
+a:visited {
+    color: var(--accent-color);
+}
+
+header {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    text-align: center;
+}
+h1, h2 {
+    font-family: var(--secondary-font);
+}
+main {
+    background-color: white;
+    color: var(--text-dark);
+    text-align: center; 
+    padding: 10px;   
+}
+button {
+    background: none;
+    border: none;
+    color: var(--text-light);
+    font-family: var(--primary-font);
+    font-size: 1em;
+    cursor: pointer;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav li {
+    margin-bottom: 10px;
+}
+
+nav a {
+    display: block;
+    padding: 10px;
+    color: var(--text-light);
+    text-decoration: underline;
+}
+
+nav a:visited {
+    color: var(--accent-color);
+}
+
+/* Default mobile layout */
+.gallery {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+#mainNav {
+    display: none;
+}
+
+#mainNav.active {
+    display: block;
+}
+
+/* Media query for screens 700px and wider */
+@media screen and (min-width: 700px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* Media query for screens 1000px and wider */
+@media screen and (min-width: 1000px) {
+    .gallery {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    button {
+        display: none;
+    }
+
+    nav {
+        display: block;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    nav li {
+        margin-bottom: 0;
+    }
+
+    nav a {
+        display: inline-block;
+    }
+}
