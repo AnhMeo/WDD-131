@@ -13,7 +13,7 @@
     display: none;
 }
 
-img {
+main img {
     width: 250px;
     height: 250px;
     object-fit: cover;
@@ -97,6 +97,41 @@ nav a:visited {
     display: block;
 }
 
+.viewer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.75);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-items: center; 
+    align-items: center; 
+    overflow: hidden;
+}
+
+.close-viewer {
+    position: absolute; /* Position the button absolutely within the viewer */
+    top: 20px; /* Adjust the top position */
+    right: 20px; /* Adjust the right position */
+    color: var(--accent-color);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    z-index: 1000; /* Keeps the button on top */
+}
+
+.viewer img {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+
+
+
 /* Media query for screens 700px and wider */
 @media screen and (min-width: 700px) {
     .gallery {
@@ -110,7 +145,7 @@ nav a:visited {
         grid-template-columns: 1fr 1fr 1fr;
     }
 
-    button {
+    header button {
         display: none;
     }
 
@@ -131,4 +166,12 @@ nav a:visited {
         display: inline-block;
     }
 
+    .viewer {
+        margin: 25px;
+        padding: 10px;
+    }
+    
+    .viewer img {
+        margin-bottom: 2000px;
+    }
 }
