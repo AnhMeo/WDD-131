@@ -9,6 +9,10 @@
 --secondary-font: Mooli, sans-serif;
 }
 
+.hide {
+    display: none;
+}
+
 img {
     width: 250px;
     height: 250px;
@@ -126,4 +130,5 @@ nav a:visited {
     nav a {
         display: inline-block;
     }
+
 }
