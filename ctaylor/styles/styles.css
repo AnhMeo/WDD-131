@@ -479,6 +479,11 @@ h1, h2, h3, h4, h5, h6 {
   padding: 10px;
 }
 
+.siteplan{
+  background-color: #122620;
+  color: #E5E5E5;
+}
+
 /* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
 @media screen and (max-width: 600px) {
   .topnav a:not(:first-child) {display: none;}
