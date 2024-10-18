@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+
+:root {
+    --gold-color: #EFC69B;
+    --red-color: #AF1B3F;
+    --dark-color: #473144;
+    --body-font: Helvetica, Arial, sans-serif;
+    --headline-font: Lora, Impact, serif;
+    }
+.site-header {
+    text-align: center;
+}
+
+.skiptocontent a {
+    position: absolute;
+    top: -9999px;
+}
+
+.skiptocontent a:focus{
+    position: static;
+    top:0;
+    
+}
+
+nav {
+    border-top: 4px solid var(--gold-color);
+    border-bottom: 4px solid var(--gold-color);
+}
+
+.nav-links {
+    display: grid;
+    grid-template-columns: 100px 100px 100px;
+    justify-content: end;
+    justify-items: end;
+    margin: 25px;
+    list-style-type: none;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+}
+
+.book-review {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+
+.nav-links a {
+    color: var(--red-color);
+}
+
+.book-title {
+    color: var(--red-color);
+}
+
+.book-details {
+    list-style-type: none;
+}
+
