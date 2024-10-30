@@ -9,7 +9,16 @@ function validateForm(event) {
     // start by assuming the form is valid.
     let isValid = true;
     // add our validations here
-  
+    if (theForm.paymentMethod.value === 'creditCard') {
+      if (theForm.creditCardNumber.value != 1234123412341234) {
+        isValid = false;
+        errors.push('Invalid credit card number');
+      }
+    }
+    if (theForm.fullName.value !== 'Bob') {
+      isValid = false;
+      errors.push('Your name is not Bop.')
+    }
     // if we ran into any problems above valid will be false.
     if (!isValid) {
       //stop the form from being submitted
@@ -39,7 +48,7 @@ function validateForm(event) {
     if (theForm.paymentMethod.value === 'creditCard') {
         creditCardContainer.classList.remove('hide');
         theForm.creditCardNumber.required = true;
-    }
+    } 
     else if (theForm.paymentMethod.value === 'paypal') {
         paypalContainer.classList.remove('hide');
         theForm.paypalDetails.required = true;
@@ -56,3 +65,4 @@ function validateForm(event) {
   // attach a change event handler to the paymentMethod input
 document.querySelector('#paymentMethod').addEventListener('change', togglePaymentDetails);
   // attach a submit event handler to the form
+document.querySelector('#checkoutForm').addEventListener('submit', validateForm);
