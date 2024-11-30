@@ -25,9 +25,9 @@ Fonts are separated by a | */
   ); /* paragraph text on a white background */
   --paragraph-color-on-color: white; /* paragraph text on a colored background */
   --paragraph-background-color: var(--primary-color);
-  --nav-link-color: var(--accent1-color);
+  --nav-link-color: white;
   --nav-background-color: var(--primary-color);
-  --nav-hover-link-color: var(--secondary-color);
+  --nav-hover-link-color: var(--accent2-color);
   --nav-hover-background-color: var(--primary-color);
 }
 
@@ -118,6 +118,7 @@ nav {
 nav {
   list-style-type: none;
   display: flex;
+  justify-content: space-between;
   border: 2px solid var(--secondary-color);
   padding: 20px;
 }
@@ -126,9 +127,10 @@ nav a {
   min-width: 120px;
   text-decoration: none;
   padding: 10px;
-  display: inline-block;
+  
   transition: transform 0.3s ease;
   position: relative;
+  font-weight: bold;
 }
 nav a:link,
 nav a:visited {
@@ -137,8 +139,9 @@ nav a:visited {
 nav a:hover {
   color: var(--nav-hover-link-color);
   background-color: var(--nav-hover-background-color);
-  transform: scale(1.1);
+  transform: scale(1.15);
   z-index: 1;
+  text-align: center;
 }
 
 .sitemap {
@@ -187,4 +190,14 @@ nav a:hover {
   grid-area: right;
   border-top: 1px solid;
   border-right: 1px solid;
+}
+
+.agenticon {
+  width: 55px;
+}
+
+.roleicon {
+  background-color: #474133;
+  width: 55px;
+  padding: 10px;
 }
