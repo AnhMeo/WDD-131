@@ -1,3 +1,4 @@
+//javascript for schedule page
 const matchSchedule = [
     {
         date: '2024-12-14T19:00:00+07:00',

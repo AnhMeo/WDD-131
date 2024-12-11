@@ -52,3 +52,97 @@ function updateCountdown() {
 
 // Update countdown every second
 setInterval(updateCountdown, 1000);
+
+// JavaScript for switching tabs
+document.querySelectorAll('.tab-button').forEach(button => {
+    button.addEventListener('click', () => {
+        // Remove active class from all buttons and tab content
+        document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        // Add active class to the clicked button and corresponding tab content
+        button.classList.add('active');
+        const tabContent = document.getElementById(button.dataset.tab);
+        tabContent.classList.add('active');
+    });
+});
+
+// Set default active tab on page load
+document.querySelector('.tab-button.active').click();
+
+
+// Initially, set the default visible tab (matches) to show
+document.getElementById("matches").classList.add("active");
+document.getElementById("highlights").classList.remove("active");
+
+
+//match archive script
+document.addEventListener("DOMContentLoaded", () => {
+    const matchFilter = document.getElementById("match-filter");
+    const matches = document.querySelectorAll(".match");
+    const matchesList = document.getElementById("matches-list");
+
+    const noMatchesMessage = document.createElement("p");
+    noMatchesMessage.id = "no-matches-message";
+    noMatchesMessage.style.display = "none";
+    noMatchesMessage.textContent = "No matches found for this filter.";
+    matchesList.appendChild(noMatchesMessage);
+
+    matchFilter.addEventListener("change", () => {
+        const selectedResult = matchFilter.value;
+        let visibleMatches = 0;
+
+        matches.forEach(match => {
+            if (selectedResult === "all" || match.dataset.result === selectedResult) {
+                match.style.display = "block";
+                visibleMatches++;
+            } else {
+                match.style.display = "none";
+            }
+        });
+
+        if (visibleMatches === 0) {
+            noMatchesMessage.style.display = "block";
+        } else {
+            noMatchesMessage.style.display = "none";
+        }
+    });
+});
+
+
+
+//highlight archive script
+document.addEventListener("DOMContentLoaded", () => {
+    const filter = document.getElementById("player-filter");
+    const highlights = document.querySelectorAll(".highlight");
+    const highlightsList = document.getElementById("highlights-list");
+
+    const noClipsMessage = document.createElement("p");
+    noClipsMessage.id = "no-clips-message";
+    noClipsMessage.style.display = "none";
+    noClipsMessage.textContent = ""; // This will be updated dynamically.
+    highlightsList.appendChild(noClipsMessage);
+
+    filter.addEventListener("change", () => {
+        const selectedPlayer = filter.value;
+        let visibleHighlights = 0;
+
+        highlights.forEach(highlight => {
+            if (selectedPlayer === "all" || highlight.dataset.player === selectedPlayer) {
+                highlight.style.display = "block";
+                visibleHighlights++;
+            } else {
+                highlight.style.display = "none";
+            }
+        });
+
+        if (visibleHighlights === 0) {
+            noClipsMessage.textContent = `No clips have been uploaded for ${selectedPlayer === "all" ? "any player" : selectedPlayer} yet. Check back again soon!`;
+            noClipsMessage.style.display = "block";
+        } else {
+            noClipsMessage.style.display = "none";
+        }
+    });
+});
+
+
