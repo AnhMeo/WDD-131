@@ -64,7 +64,7 @@ nav {
   nav a:hover {
     color: var(--nav-hover-link-color);
     background-color: var(--nav-hover-background-color);
-    transform: scale(1.4);
+    transform: scale(1.2);
     z-index: 1;
     text-align: center;
   }
@@ -98,10 +98,11 @@ nav {
     padding: 16px;
     margin: 16px auto;
     background-color: #f9f9f9;
-    width: 70%;
+    width: 80%;
     text-align: center;
     font-family: 'Poppins', sans-serif;
     background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
   }
   
   .team-name {
@@ -141,14 +142,14 @@ nav {
   }
   
   .role-icon {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     padding: 5px;
   }
   
   .agent-icon {
-    width: 50px;
-    height: 50px;
+    width: 70px;
+    height: 70px;
   }
   
   .icon-label {
@@ -161,4 +162,48 @@ nav {
     color: #333;
     padding: 0 16px;
     text-align: left;
+    font-family: var(--paragraph-font);
   }
+
+  #match-info {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin: 20px;
+}
+
+.match-card {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
+    width: 60%;
+    text-align: center;
+    justify-self: center;
+}
+
+.match-card h2 {
+    margin: 0 0 10px;
+    color: #333;
+}
+
+.match-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+#countdown-timer {
+  border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
+    margin-top: 15px;
+    width: 200px;
+    font-size: x-large;
+    font-family: var(--heading-font);
+    color: white;
+    text-shadow: 
+    3px 3px 0 var(--accent2-color);
+}
