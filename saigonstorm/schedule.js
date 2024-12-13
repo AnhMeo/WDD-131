@@ -11,9 +11,29 @@ const matchSchedule = [
         map: 'To be determined',
     },
     {
-        date: '2024-12-21T19:00:00+07:00',
-        title: 'Premier Playoffs',
-        map: 'To be determined',
+        date: '2025-01-11T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Fracture',
+    },{
+        date: '2025-01-18T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Haven',
+    },{
+        date: '2025-01-25T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Pearl',
+    },{
+        date: '2025-02-01T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Split',
+    },{
+        date: '2025-02-08T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Abyss',
+    },{
+        date: '2025-02-15T19:00:00+07:00',
+        title: 'Premier Match',
+        map: 'Lotus',
     },
 ];
 

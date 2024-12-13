@@ -178,8 +178,8 @@ nav {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
-    background-color: #f9f9f9;
-    box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
+    background-color: #f9f9f9ec;
+    box-shadow: inset 1px 1px 10px 5px rgba(1, 240, 228, 0.5);
     width: 60%;
     text-align: center;
     justify-self: center;
@@ -187,11 +187,15 @@ nav {
 
 .match-card h2 {
     margin: 0 0 10px;
-    color: #333;
+    font-family: var(--heading-font);
+    font-size: xx-large;
+    color: #333;  
 }
 
 .match-card p {
     margin: 5px 0;
+    font-family: var(--paragraph-font);
+    font-size: xx-large;
     color: #555;
 }
 
