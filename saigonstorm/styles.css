@@ -75,7 +75,7 @@ nav {
     height: 55px;
   }
 
-  .hometitle {
+  .home-title {
     text-align: center;
     font-size: x-large;
     font-family: var(--heading-font);
@@ -90,10 +90,7 @@ nav {
     
   }
   
-  
-  
-  
-  
+ 
   .team-card {
     border: 1px solid #ccc;
     border-radius: 10px;
@@ -439,4 +436,35 @@ nav {
   .nav-links a:hover {
       transform: none;
   }
+}
+
+.val-title {
+  text-align: center;
+  font-size: x-large;
+  font-family: var(--heading-font);
+  color: white;
+  text-shadow: 
+  3px 3px 0 var(--accent2-color);
+}
+
+.val-info {
+  display: flex; /* Enables flexbox */
+  flex-direction: column; /* Stacks items vertically */
+  align-items: center; /* Centers items horizontally */
+  gap: 10px; /* Adds spacing between the images */
+}
+
+.val-info img {
+  max-width: 100%; /* Ensures images resize properly */
+  height: auto; /* Maintains aspect ratio */
+}
+
+.link {
+  text-shadow: none;
+  color: white;
+}
+
+
+footer {
+  background-color: rgba(255, 255, 255, 0.3);
 }
