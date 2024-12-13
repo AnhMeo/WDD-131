@@ -3,10 +3,10 @@
 
 :root {
   /* change the values below to your colors from your palette */
-  --primary-color: #413925;
-  --secondary-color: #f24242;
-  --accent1-color: #efdc34;
-  --accent2-color: #4ac2b6;
+  --primary-color: #0f1923;
+  --secondary-color: #D61F1F;
+  --accent1-color: #D4C118;
+  --accent2-color: #0B8A80;
 
   /* change the values below to your chosen font(s) */
   --heading-font: "Monstserrat", sans-serif;
@@ -60,14 +60,16 @@ nav {
   }
   nav a:link,
   nav a:visited {
-    color: var(--nav-link-color);
+    color: #FFFFFF;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
   nav a:hover {
-    color: var(--nav-hover-link-color);
+    color: #4ac2b6;
     background-color: transparent;
     transform: scale(1.5);
     z-index: 1;
     text-align: center;
+    text-shadow: none;
   }
 
   .logo {
@@ -96,7 +98,7 @@ nav {
     border-radius: 10px;
     padding: 16px;
     margin: 16px auto;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.7);
     box-shadow: inset 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
     width: 80%;
     text-align: center;
@@ -106,7 +108,7 @@ nav {
   .team-name {
     font-size: 1.5rem;
     margin-bottom: 12px;
-    color: #474133;
+    color: #000000;
   }
   
   .card-middle {
@@ -125,6 +127,7 @@ nav {
     font-size: 1.2rem;
     margin-bottom: 8px;
     text-align: center;
+    color: #000000;
   }
   
   .role-item, .agent-item {
@@ -152,6 +155,7 @@ nav {
   .icon-label {
     margin-top: 4px;
     font-size: 0.9rem;
+    color: #000000;
   }
   
   .bio {
@@ -195,13 +199,13 @@ nav {
     border: 1px solid #ddd;
     padding: 15px;
     border-radius: 5px;
-    background-color: rgba(255, 255, 255, 0.4);
+    background-color: rgba(0, 0, 0, 0.7);
     box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
     margin-top: 15px;
     width: 200px;
     font-size: x-large;
     font-family: var(--heading-font);
-    color: white;
+    color: #FFFFFF;
     font-weight: bold;
 }
 
@@ -466,5 +470,69 @@ nav {
 
 
 footer {
-  background-color: rgba(255, 255, 255, 0.3);
+  background-color: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+  padding: 20px;
+  margin-top: 20px;
+  text-align: center;
+}
+
+footer p {
+  color: #FFFFFF; /* Pure white text */
+  font-family: var(--paragraph-font);
+  line-height: 1.5;
+}
+
+footer a {
+  color: var(--accent2-color); /* Using the accent color for links */
+  text-decoration: underline; /* Makes links more obvious */
+}
+
+footer a:hover {
+  color: #4ac2b6; /* Lighter shade for hover state */
+}
+
+/* Desktop styles only */
+@media screen and (min-width: 769px) {
+    .home-header {
+        display: flex;
+        align-items: center;
+        margin: 20px;
+        width: 80%; /* Match team-card width */
+        margin-left: auto;
+        margin-right: auto;
+        position: relative; /* Add this */
+    }
+
+    #countdown-timer {
+        margin-right: auto; /* Push timer to the left */
+    }
+
+    .home-title {
+        position: absolute; /* Add this */
+        left: 50%; /* Add this */
+        transform: translateX(-50%); /* Add this */
+        width: 100%; /* Add this */
+    }
+}
+
+/* Keep all other styles as they were */
+.home-title {
+    text-align: center;
+    font-size: x-large;
+    font-family: var(--heading-font);
+    color: white;
+    text-shadow: 3px 3px 0 var(--accent2-color);
+}
+
+#countdown-timer {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 1px 20px 10px rgba(1, 240, 228, 0.5);
+    width: 200px;
+    font-size: x-large;
+    font-family: var(--heading-font);
+    color: #FFFFFF;
+    font-weight: bold;
 }
