@@ -148,19 +148,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener('DOMContentLoaded', function() {
     const contactForm = document.getElementById('contactForm');
-    const confirmation = document.getElementById('confirmation');
-    
-    console.log('Form found:', !!contactForm); // Debug log
-    console.log('Confirmation div found:', !!confirmation); // Debug log
-
     if (contactForm) {
+        const confirmation = document.getElementById('confirmation');
+
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            console.log('Form submitted'); // Debug log
             
             const message = document.getElementById('message').value;
-            console.log('Message:', message); // Debug log
-            
             const webhookUrl = "https://discord.com/api/webhooks/1317187802131071116/MgNnYDFLz7YpXp1iTfMLQgMtkBf_B79skRpvekl1IwH_-NIUD5DcnluGxnM0UmUGtXBL";
 
             if (message.trim() === "") {
@@ -174,13 +168,13 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    content: message
+                    username: "Website Contact Form",
+                    content: message,
+                    avatar_url: "https://saigonstorm.github.io/images/logo-no-text.png"
                 })
             })
             .then(response => {
-                console.log('Response status:', response.status); // Debug log
                 if (response.ok) {
-                    console.log('Message sent successfully'); // Debug log
                     confirmation.style.display = "block";
                     contactForm.reset();
                     
@@ -188,7 +182,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         confirmation.style.display = "none";
                     }, 3000);
                 } else {
-                    console.error('Response not ok:', response); // Debug log
                     alert("There was an issue sending your message. Please try again later.");
                 }
             })
