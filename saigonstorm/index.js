@@ -147,20 +147,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 document.addEventListener('DOMContentLoaded', function() {
+    // Handle contact form submission only if the contact form exists
     const contactForm = document.getElementById('contactForm');
-    if (contactForm) {
-        const confirmation = document.getElementById('confirmation');
+    const confirmation = document.getElementById('confirmation');
 
+    if (contactForm) {
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            const message = document.getElementById('message').value;
-            const webhookUrl = "https://discord.com/api/webhooks/1317187802131071116/MgNnYDFLz7YpXp1iTfMLQgMtkBf_B79skRpvekl1IwH_-NIUD5DcnluGxnM0UmUGtXBL";
+            const message = document.getElementById('message').value.trim();
 
-            if (message.trim() === "") {
+            if (message === "") {
                 alert("Please enter a message.");
                 return;
             }
+
+            const webhookUrl = "YOUR_WEBHOOK_URL"; // Ensure this is correct
 
             fetch(webhookUrl, {
                 method: "POST",
@@ -168,21 +169,23 @@ document.addEventListener('DOMContentLoaded', function() {
                     "Content-Type": "application/json"
                 },
                 body: JSON.stringify({
-                    username: "Website Contact Form",
-                    content: message,
-                    avatar_url: "https://saigonstorm.github.io/images/logo-no-text.png"
+                    content: message
                 })
             })
             .then(response => {
-                if (response.ok) {
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                return response.json();
+            })
+            .then(data => {
+                console.log('Response data:', data);
+                if (confirmation) { // Check if confirmation element exists
                     confirmation.style.display = "block";
                     contactForm.reset();
-                    
                     setTimeout(() => {
                         confirmation.style.display = "none";
                     }, 3000);
-                } else {
-                    alert("There was an issue sending your message. Please try again later.");
                 }
             })
             .catch(error => {
@@ -191,4 +194,12 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         });
     }
+
+    // Handle other elements specific to index.html or match-archive.html
+    const someOtherElement = document.getElementById('someOtherElement');
+    if (someOtherElement) {
+        // Add event listeners or manipulate this element
+    }
+
+    // Add more checks for other elements as needed
 });
