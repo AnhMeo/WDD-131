@@ -214,42 +214,42 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+//for the message box 
 document.getElementById("contactForm").addEventListener("submit", function (event) {
-    event.preventDefault(); // Prevent form from refreshing the page
-  
-    const message = document.getElementById("message").value;
-    const webhookUrl = "https://discord.com/api/webhooks/1317187802131071116/MgNnYDFLz7YpXp1iTfMLQgMtkBf_B79skRpvekl1IwH_-NIUD5DcnluGxnM0UmUGtXBL";
-  
-    if (message.trim() === "") {
-      alert("Please enter a message.");
-      return;
-    }
-  
-    fetch(webhookUrl, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        content: message // The actual message sent to Discord
-      })
+  event.preventDefault(); // Prevent form from refreshing the page
+
+  const message = document.getElementById("message").value;
+  const webhookUrl = "https://discord.com/api/webhooks/1317187802131071116/MgNnYDFLz7YpXp1iTfMLQgMtkBf_B79skRpvekl1IwH_-NIUD5DcnluGxnM0UmUGtXBL";
+
+  if (message.trim() === "") {
+    alert("Please enter a message.");
+    return;
+  }
+
+  fetch(webhookUrl, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({
+      content: message // The actual message sent to Discord
     })
-      .then(response => {
-        if (response.ok) {
-          document.getElementById("confirmation").style.display = "block"; // Show success message
-          document.getElementById("contactForm").reset(); // Clear form
-          
-          // Hide confirmation message after 3 seconds
-          setTimeout(() => {
-            confirmation.style.display = 'none';
-          }, 3000);
-        } else {
-          alert("There was an issue sending your message. Please try again later.");
-        }
-      })
-      .catch(error => {
-        console.error("Error sending message to Discord:", error);
-        alert("An error occurred. Please check your connection and try again.");
-      });
-  });
-  
+  })
+    .then(response => {
+      if (response.ok) {
+        document.getElementById("confirmation").style.display = "block"; // Show success message
+        document.getElementById("contactForm").reset(); // Clear form
+        
+        // Hide confirmation message after 3 seconds
+        setTimeout(() => {
+          document.getElementById("confirmation").style.display = "none";
+        }, 3000);
+      } else {
+        alert("There was an issue sending your message. Please try again later.");
+      }
+    })
+    .catch(error => {
+      console.error("Error sending message to Discord:", error);
+      alert("An error occurred. Please check your connection and try again.");
+    });
+});
