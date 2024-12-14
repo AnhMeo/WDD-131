@@ -226,6 +226,7 @@ nav {
 .schedule-heading {
   color: var(--paragraph-color-on-color);
   text-align: center;
+  font-family: var(--heading-font);
 }
 
 /* Tab container styles */
@@ -649,3 +650,4 @@ footer a:hover {
     font-size: 1.2em;
     text-align: center;
 }
+
