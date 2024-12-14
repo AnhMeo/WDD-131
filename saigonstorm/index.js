@@ -142,27 +142,57 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // **Contact Form Handling**
-    const contactForm = document.getElementById('contactForm');
-    const confirmation = document.getElementById('confirmation');
-    if (contactForm && confirmation) {
-        contactForm.addEventListener('submit', function (e) {
-            e.preventDefault();
-            const message = document.getElementById('message').value.trim();
+ // **Contact Form Handling**
+const contactForm = document.getElementById('contactForm');
+const confirmation = document.getElementById('confirmation');
 
-            if (message === "") {
-                alert("Please enter a message.");
-                return;
+if (contactForm && confirmation) {
+    contactForm.addEventListener('submit', function (e) {
+        e.preventDefault();
+        
+        const message = document.getElementById('message').value.trim();
+        
+        if (message === "") {
+            alert("Please enter a message.");
+            return;
+        }
+
+        // Show confirmation message
+        confirmation.style.display = "block";
+        contactForm.reset();
+        setTimeout(() => {
+            confirmation.style.display = "none";
+        }, 3000);
+
+        // Prepare the message to send to Discord
+        const discordMessage = {
+            content: `New contact form submission:\nMessage: ${message}`
+        };
+
+        // Discord webhook URL
+        const webhookURL = 'https://discord.com/api/webhooks/1317187802131071116/MgNnYDFLz7YpXp1iTfMLQgMtkBf_B79skRpvekl1IwH_-NIUD5DcnluGxnM0UmUGtXBL';
+
+        // Send form data to Discord using webhook
+        fetch(webhookURL, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(discordMessage),
+        })
+        .then(response => {
+            if (response.ok) {
+                console.log('Message sent to Discord');
+            } else {
+                console.error('Error sending message to Discord');
             }
-
-            confirmation.style.display = "block";
-            contactForm.reset();
-            setTimeout(() => {
-                confirmation.style.display = "none";
-            }, 3000);
+        })
+        .catch(error => {
+            console.error('Error:', error);
         });
-    }
-});
+    });
+}
+
 
 // Helper function to calculate the time remaining until the match
 function getTimeRemaining(matchDate) {
@@ -187,4 +217,4 @@ function getTimeRemaining(matchDate) {
         minutes: String(minutes).padStart(2, '0'),
         seconds: String(seconds).padStart(2, '0')
     };
-}
+}})
